@@ -156,13 +156,61 @@ for (let i = 0; i < 2; i++) {
          i--;
     }
 }  
-
 console.log(personalMovieDB);
-
 
 /* 3) При помощи условий проверить  personalMovieDB.count, и если он меньше 10 - вывести сообщение
 "Просмотрено довольно мало фильмов", если от 10 до 30 - "Вы классический зритель", а если больше - 
 "Вы киноман". А если не подошло ни к одному варианту - "Произошла ошибка" */
 
+if (personalMovieDB.count < 10 ) {
+    console.log("Просмотрено довольно мало фильмов");
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    console.log("Вы классический зритель");
+} else if (personalMovieDB.count < 30 ) {
+    console.log("Вы киноман");
+} else {
+    console.log("Произошла ошибка");
+}
+
 /* 4) Потренироваться и переписать цикл еще двумя способами */
+ 
+/* 16. Функции, стрелочные ф-ции (ES6)*/
+
+function showFirstMessage(text) {  /* Должно быть глаголом! */
+    console.log(text);
+    let num = 20; /* -- Переменная доступна только внутри функции! */
+}
+showFirstMessage("Hello, World!");
+
+console.log(num);
+
+function calc(a, b) {
+    return (a + b);
+    console.log('dwed'); /* unreachable!  код после return - работать не будет!  */ 
+}
+console.log(calc(4, 3));
+console.log(calc(5, 6));
+console.log(calc(6, 10));
+console.log(calc(8, 1));
+
+function ret() {
+    let num = 50;
+    return num;
+}
+const anotherNum = ret();
+console.log(anotherNum);
+
+const logger = function() {
+    console.log('Hello');
+}; 
+
+logger();
+
+const calc = (a, b) => a + b;
+
+const calc = (a, b) => {
+    console.log('1');
+    return a + b;
+};
+
  
