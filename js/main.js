@@ -213,4 +213,43 @@ const calc = (a, b) => {
     return a + b;
 };
 
+ /* 17. Методы и свойства строк и чисел */
+
+/* Методы для строк*/
+
+ 
+ const arr = [1, 2, 3];
+ console.log(arr.length); /* 3 */
+
+ const str = "test";
+  
+ console.log(str[2]); /* s */
+
+ console.log(str.toUpperCase()); /* TEST */
+ console.log(str.toLowerCase()); /* test */
+
+/* Методы - Поиск подстроки */
+
+ const fruit = 'Some fruit';
+ console.log(fruit.indexOf('f')); /* 5 */
+
+
+ const logg = 'Hello World';
+
+ console.log(logg.slice(6, 11)); /* World / Поддерживает отриц знач */
+
+ console.log(logg.substring(6, 11)); /* World /Не поддерживает отриц знач */
+
+ console.log(logg.substr(6, 5)); /* World /Сколько символов надо вырезать */
+
+ /* Числа! */
+
+ const num = 12.2;
+ console.log(Math.round(num)); /* 12 */
+
+ const test ='12.2px';
+
+ console.log(parseInt(test)); /* 12 */
+ console.log(parseFloat(test)); /* 12.2 */
+
  
