@@ -413,36 +413,78 @@ P.S. Функции вызывать не обязательно*/
 
 // /* Метод - object keys */
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    }
-};
-console.log(Object.keys(options)); /* --- [ 'name', 'width', 'height', 'colors' ] */
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     }
+// };
+// console.log(Object.keys(options)); /* --- [ 'name', 'width', 'height', 'colors' ] */
 
-console.log(Object.keys(options).length); /* 4 */
+// console.log(Object.keys(options).length); /* 4 */
 
 
-const options = {
-    name: 'test',
-    width: 1024,
-    height: 1024,
-    colors: {
-        border: 'black',
-        bg: 'red'
-    },
-    makeTest: function() {
-        console.log('Test');  /* создали метод! */
-    }
-};
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     },
+//     makeTest: function() {
+//         console.log('Test');  /* создали метод! */
+//     }
+// };
 
-options.makeTest(); /* запустили !   -  в консоле - Test! */
+// options.makeTest(); /* запустили !   -  в консоле - Test! */
 
-/* Деструктуризация объектов (ES6) */
+// /* Деструктуризация объектов (ES6) */
 
-const {border, bg} = options.colors;
-console.log(border);  /*  -- black */
+// const {border, bg} = options.colors;
+// console.log(border);  /*  -- black */
+
+/* 21. Массивы и псевдомассивы */
+
+
+// const arr  = [1, 2, 3, 6, 8];
+// // arr[99] = 0;
+// // console.log(arr.length); /* 5  / 100 !*/ 
+
+// // arr.pop(); /*  удоляет после элем  */
+// // arr.push(10); /*  добавляет */
+
+// // console.log(arr); /*  [ 1, 2, 3, 6 ] */
+// // console.log(arr); /*  [ 1, 2, 3, 6, 10 ] */
+
+// // for(let i = 0; i < arr.length; i++) {
+// //     console.log(arr[i]);  
+// // }
+
+// // for (let value of arr) {
+// //     console.log(value);
+// // }
+
+// arr.forEach(function(item, i, arr){
+//     console.log(`${i}: ${item} внутри массива ${arr}`); /* 0: 1 внутри массива 1,2,3,6,8
+//                                                            1: 2 внутри массива 1,2,3,6,8
+//                                                            2: 3 внутри массива 1,2,3,6,8
+//                                                            3: 6 внутри массива 1,2,3,6,8
+//                                                            4: 8 внутри массива 1,2,3,6,8 */
+// });
+
+// const str = prompt("", "");
+// const products = str.split(", ");
+// products.sort();
+// console.log(products.join("; "));
+
+const arr = [19, 3, 36, 8, 10];
+arr.sort(compareNum);
+console.log(arr);
+
+function compareNum(a, b) {
+    return a - b;
+}
