@@ -268,95 +268,181 @@ genres
 
 P.S. Функции вызывать не обязательно*/
 
-let numberOfFilms;
+// let numberOfFilms;
 
-function start() {
-    numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+// function start() {
+//     numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
 
-    while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
-        numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+//     while (numberOfFilms == '' || numberOfFilms == null || isNaN(numberOfFilms)) {
+//         numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?", "");
+//     }
+// }
+// start();
+
+// const personalMovieDB = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
+
+// function rememberMyFilms() {
+//     for (let i = 0; i < 2; i++) {
+//         let a = prompt("Один из последних просмотренных фильмов?", ""),
+//             b = prompt("На сколько оцените его?", "");
+        
+//         if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+//             personalMovieDB.movies[a] = b;
+//             console.log("done");  
+//         } else {
+//             console.log(Error);
+//             i--;
+//         }
+//     }
+// }  
+
+// // rememberMyFilms();
+
+// function detectPersonslLevel() {
+//     if (personalMovieDB.count < 10 ) {
+//         console.log("Просмотрено довольно мало фильмов");
+//     } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+//         console.log("Вы классический зритель");
+//     } else if (personalMovieDB.count < 30 ) {
+//         console.log("Вы киноман");
+//     } else {
+//         console.log("Произошла ошибка");
+//     }
+// }
+
+// // detectPersonslLevel();
+
+
+// function showMyDB(hidden) {
+//     if(!hidden) {
+//        console.log(personalMovieDB);
+//     } 
+// }
+
+// showMyDB(personalMovieDB.privat);
+
+// function writeYourGenres() {
+//     for(let i = 0; i < 3; i++) {
+//         personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}`);      
+//     }
+// }
+
+// writeYourGenres();
+
+
+// /* 19. Callback- функции */
+
+// function first() {
+//     // Do something
+//     setTimeout(function() {
+//         console.log(1);
+//     }, 500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+
+// first();
+// second();
+
+// function learnJS(lang, callback) {
+//     console.log(`Я учу: ${lang}`);
+//     callback();
+// }
+
+// learnJS('JavaScript', function(){
+//     console.log("Я прошел этот урок!");
+// });
+
+/* 20. Объекты, деструктуризация
+объектов (ES6)  */
+
+
+// const options = {
+//     name: 'test',
+//     width: 1024,
+//     height: 1024,
+//     colors: {
+//         border: 'black',
+//         bg: 'red'
+//     }
+// };
+
+// // console.log(options.name);
+
+// // /* Оператор delete - удалить! */
+
+// // delete options.name;
+
+// // console.log(options);
+
+// /* Конструкция  for in !  */
+
+// for (let key in options) {
+//     if(typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`Свойсво ${i} имеет значение ${options[key][i]}`);
+//         }
+//     } else {
+//         console.log(`Свойсво ${key} имеет значение ${options[key]}`);
+//     }
+// }
+
+// /* Свойство и методы объекта. Прием счетчика */
+
+// let counter = 0;
+// for (let key in options) {
+//     if(typeof(options[key]) === 'object') {
+//         for (let i in options[key]) {
+//             console.log(`Свойсво ${i} имеет значение ${options[key][i]}`);
+//             counter++;
+//         }
+//     } else {
+//         console.log(`Свойсво ${key} имеет значение ${options[key]}`);
+//         counter++;
+//     }
+// }
+// console.log(counter);
+
+// /* Метод - object keys */
+
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
     }
-}
-start();
+};
+console.log(Object.keys(options)); /* --- [ 'name', 'width', 'height', 'colors' ] */
 
-const personalMovieDB = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
+console.log(Object.keys(options).length); /* 4 */
+
+
+const options = {
+    name: 'test',
+    width: 1024,
+    height: 1024,
+    colors: {
+        border: 'black',
+        bg: 'red'
+    },
+    makeTest: function() {
+        console.log('Test');  /* создали метод! */
+    }
 };
 
-function rememberMyFilms() {
-    for (let i = 0; i < 2; i++) {
-        let a = prompt("Один из последних просмотренных фильмов?", ""),
-            b = prompt("На сколько оцените его?", "");
-        
-        if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-            personalMovieDB.movies[a] = b;
-            console.log("done");  
-        } else {
-            console.log(Error);
-            i--;
-        }
-    }
-}  
+options.makeTest(); /* запустили !   -  в консоле - Test! */
 
-// rememberMyFilms();
+/* Деструктуризация объектов (ES6) */
 
-function detectPersonslLevel() {
-    if (personalMovieDB.count < 10 ) {
-        console.log("Просмотрено довольно мало фильмов");
-    } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
-        console.log("Вы классический зритель");
-    } else if (personalMovieDB.count < 30 ) {
-        console.log("Вы киноман");
-    } else {
-        console.log("Произошла ошибка");
-    }
-}
-
-// detectPersonslLevel();
-
-
-function showMyDB(hidden) {
-    if(!hidden) {
-       console.log(personalMovieDB);
-    } 
-}
-
-showMyDB(personalMovieDB.privat);
-
-function writeYourGenres() {
-    for(let i = 0; i < 3; i++) {
-        personalMovieDB.genres[i] = prompt(`Ваш любимый жанр под номером ${i + 1}`);      
-    }
-}
-
-writeYourGenres();
-
-
-/* 19. Callback- функции */
-
-function first() {
-    // Do something
-    setTimeout(function() {
-        console.log(1);
-    }, 500);
-}
-
-function second() {
-    console.log(2);
-}
-
-first();
-second();
-
-function learnJS(lang, callback) {
-    console.log(`Я учу: ${lang}`);
-    callback();
-}
-
-learnJS('JavaScript', function(){
-    console.log("Я прошел этот урок!");
-});
+const {border, bg} = options.colors;
+console.log(border);  /*  -- black */
