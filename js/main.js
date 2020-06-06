@@ -511,102 +511,102 @@ P.S. Функции вызывать не обязательно*/
 // console.log(copy); /* { a: 10, b: 1 }  */
 // console.log(obj); /*  { a: 10, b: 1 } */
 
-function copy(mainObj) {
-    let objCopy = {};
+// function copy(mainObj) {
+//     let objCopy = {};
 
-    let key;
-    for (key in mainObj) {
-        objCopy[key] = mainObj[key];
-    }
+//     let key;
+//     for (key in mainObj) {
+//         objCopy[key] = mainObj[key];
+//     }
 
-    return objCopy;
-}
+//     return objCopy;
+// }
 
-const numbers = {
-    a: 2,
-    b: 5,
-    c: {
-        x: 7,
-        y: 4
-    }
-};
+// const numbers = {
+//     a: 2,
+//     b: 5,
+//     c: {
+//         x: 7,
+//         y: 4
+//     }
+// };
 
-const newNumbers = copy(numbers);
+// const newNumbers = copy(numbers);
 
-newNumbers.a = 10;
-newNumbers.c.x = 10;
+// newNumbers.a = 10;
+// newNumbers.c.x = 10;
 
-// console.log(newNumbers);
-// console.log(numbers);
+// // console.log(newNumbers);
+// // console.log(numbers);
 
-const add = {
-    d: 17,
-    e: 20
-};
+// const add = {
+//     d: 17,
+//     e: 20
+// };
 
-console.log(Object.assign(numbers, add));
+// console.log(Object.assign(numbers, add));
 
-const clone = Object.assign({}, add);
+// const clone = Object.assign({}, add);
 
-clone.d = 20;
+// clone.d = 20;
 
-// console.log(add);
-// console.log(clone);
+// // console.log(add);
+// // console.log(clone);
 
-const oldArray = ['a', 'b', 'c'];
-const newArray = oldArray.slice();
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();
 
-newArray[1] = 'adasdasda';
-console.log(newArray); /* [ 'a', 'adasdasda', 'c' ] */
-console.log(oldArray); /* [ 'a', 'b', 'c' ]  */
+// newArray[1] = 'adasdasda';
+// console.log(newArray); /* [ 'a', 'adasdasda', 'c' ] */
+// console.log(oldArray); /* [ 'a', 'b', 'c' ]  */
 
-/* Оператор разворота -  Spread*/
+// /* Оператор разворота -  Spread*/
 
-const video = ['youtube', 'video', 'rutube'],
-      blogs = ['wordpress', 'livejournal', 'blogger'],
-      internet = [...video, ...blogs, 'vk', 'facebook'];
+// const video = ['youtube', 'video', 'rutube'],
+//       blogs = ['wordpress', 'livejournal', 'blogger'],
+//       internet = [...video, ...blogs, 'vk', 'facebook'];
 
-console.log(internet);
+// console.log(internet);
 
-function log(a, b, c) {
-    console.log(a);
-    console.log(b);
-    console.log(c);
-}
-const num = [2, 5, 7];
+// function log(a, b, c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+// const num = [2, 5, 7];
 
-log(...num);
+// log(...num);
 
-const array = ['a', 'b'];
+// const array = ['a', 'b'];
 
-const newAarray = [...array];
+// const newAarray = [...array];
 
-const q = {
-    one: 1,
-    two: 2
-};
+// const q = {
+//     one: 1,
+//     two: 2
+// };
 
-const newObj = {...q};
+// const newObj = {...q};
 
-/*  23. Основы ООП, прототипно-ориентированное наследование */
+// /*  23. Основы ООП, прототипно-ориентированное наследование */
 
-let str = 'some';
-let strObj = new String(str);
+// let str = 'some';
+// let strObj = new String(str);
 
-console.log(typeof(str)); /* string */
-console.log(typeof(strObj)); /* object */
+// console.log(typeof(str)); /* string */
+// console.log(typeof(strObj)); /* object */
 
-console.dir([1, 2, 3]);
+// console.dir([1, 2, 3]);
 
-const soldier = {
-    health: 400,
-    armor: 100,
-    sayHello: function() {
-        console.log('Hello');
-    } 
-};
+// const soldier = {
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() {
+//         console.log('Hello');
+//     } 
+// };
 
-const jonh = Object.create(soldier);
+// const jonh = Object.create(soldier);
 
 // const jonh = {
 //     health: 100
@@ -618,4 +618,99 @@ const jonh = Object.create(soldier);
 
 // console.log(jonh.armor);
 
-jonh.sayHello();
+// jonh.sayHello();
+
+/*  24. Практика , ч4. Используем объекты.
+
+ Задание на урок:
+
+1) У нас уже есть рабочее приложение, состоящее из отдельных функций. Представьте, что
+перед вами стоит задача переписать его так, чтобы все функции стали методами объекта personalMovieDB
+Такое случается в реальных продуктах при смене технологий или подхода к архитектуре программы
+
+2) Создать метод toggleVisibleMyDB, который при вызове будет проверять свойство privat. Если оно false - он
+переключает его в true, если true - переключает в false. Протестировать вместе с showMyDB.
+
+3) В методе writeYourGenres запретить пользователю нажать кнопку "отмена" или оставлять пустую строку. 
+Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
+при помощи метода forEach вывести в консоль сообщения в таком виде:
+" (название из массива)" */
+    
+const personalMovieDB = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function() {
+        personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+    
+        while (personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+            personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?", "");
+        }
+    },
+    rememberMyFilms: function () {
+        for (let i = 0; i < 2; i++) {
+            let a = prompt("Один из последних просмотренных фильмов?", ""),
+                b = prompt("На сколько оцените его?", "");
+            
+            if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+                personalMovieDB.movies[a] = b;
+                console.log("done");  
+            } else {
+                console.log(Error);
+                i--;
+            }
+        }
+    },
+    detectPersonslLevel: function() {
+        if (personalMovieDB.count < 10 ) {
+            console.log("Просмотрено довольно мало фильмов");
+        } else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+            console.log("Вы классический зритель");
+        } else if (personalMovieDB.count < 30 ) {
+            console.log("Вы киноман");
+        } else {
+            console.log("Произошла ошибка");
+        }
+    },
+    showMyDB: function(hidden) {
+        if (!hidden) {
+            console.log(personalMovieDB);
+        } 
+    },
+    toggleVisibleMyDB: function() {
+        if(personalMovieDB.privat === false){
+            personalMovieDB.privat = true;
+        } else {
+            personalMovieDB.privat = false;
+        }
+    },
+    writeYourGenres: function() {
+        for(let i = 1; i <= 3; i++) {
+            // let genre = prompt(`Ваш любимый жанр под номером ${i}`);
+        
+            // if (genre === '' || genre == null) {
+            //     console.log("Вы ввели некорректные данные или не ввели их вовсе");
+            //     i--;
+            // } else {
+            //     personalMovieDB.genres[i - 1] = genre;
+            // }
+
+            let genres = prompt(`Введите ваши любимые жанры через запятую`).toLowerCase;
+            
+            if (genres === '' || genres == null) {
+                    console.log("Вы ввели некорректные данные или не ввели их вовсе");
+                    i--;
+                } else {
+                    personalMovieDB.genres = genres.indexOf.split(', ');
+                    personalMovieDB.genres.sort();
+                }
+
+        }
+        
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        });
+    }
+};
